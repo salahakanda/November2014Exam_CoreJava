@@ -1,5 +1,11 @@
 package employee.info.system;
 
+/**
+ * Employee: interface
+ * @author Zaidong Yidayeti
+ * @since December 6, 2014
+ */
+
 public interface Employee {
 	
 	/*Employee is an Interface which contains multiple unimplemented methods.Again few methods
@@ -11,13 +17,13 @@ public interface Employee {
 	 */
 	
 	// employeeId() will return employee id.
-	public int employeeId();
+	public int employeeId(String empName);
 	
-	// employeeName() will return employee name
-	public String employeeName();
+	// employeeName() will return employee name by employee ID
+	public String employeeName(int empId);
 	
 	// assignDepartment() will assign employee to departments
-    public void assignDepartment();
+    public void assignDepartment(int empId, String deptName);
 	
 	// calculate employee salary
 	public int calculateSalary();

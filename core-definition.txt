@@ -98,7 +98,8 @@ Answer: Java Archive
 
 What is compile time and run time?
 Answer:
-Compile time: refers to either the operations performed by a compiler, programming language requirements that must be met by source code for it to be successfully compiled, or properties of the program that can be reasoned about during compilation.
+Compile time: The time period that spent on compiling source code.
+Run time: The time period that spent on running java bytecode, or other application.
 
 What is heap?
 Answer: A heap is an area of pre-reserved computer main storage ( memory ) that a program process can use to store data in some variable amount that won't be known until the program is running.

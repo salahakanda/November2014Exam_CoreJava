@@ -1,6 +1,12 @@
 package employee.info.system;
 
-public class EmployeeInfo {
+/**
+ * EmployeeInfo: concrete class for extend implement ManageEmployees abstract class
+ * @author Zaidong Yidayeti
+ * @since December 6, 2014
+ */
+
+public class EmployeeInfo extends ManageEmployees {
 	
  /*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
  * Also, Employee interface can be implemented into an abstract class.So create an Abstract class
@@ -15,7 +21,7 @@ public class EmployeeInfo {
 	/*
 	 * declare few static and final fields and some non-static fields
 	 */
-	static String companyName;
+	final static String companyName = "MyCompany, Inc.";
 	
 	/*
 	 * You must implement the logic for below 2 methods and 
@@ -27,11 +33,38 @@ public class EmployeeInfo {
 	 * you must have multiple constructor.
 	 * Must implement below constructor.
 	 */
-	public EmployeeInfo(int employeeId){
-		
+	EmployeeType employee;
+	
+	public EmployeeInfo(){
+		NewEmployeeInfo(0, "", "", 0, 0, 0);
 	}
-    public EmployeeInfo(String name, int employeeId){
-		
+	
+	public EmployeeInfo(int employeeId){
+		NewEmployeeInfo(employeeId, "", "", 0, 0, 0);
+	}
+	
+    public EmployeeInfo(int employeeId, String name){
+    	NewEmployeeInfo(employeeId, name, "", 0, 0, 0);
+	}
+    
+    public EmployeeInfo(int employeeId, String name, String department){
+    	NewEmployeeInfo(employeeId, name, department, 0, 0, 0);
+	}
+    
+    public EmployeeInfo(int employeeId, String name, String department, int salary){
+    	NewEmployeeInfo(employeeId, name, department, salary, 0, 0);
+	}
+
+    // initialize employee variable
+    private void NewEmployeeInfo(int employeeId, String name, 
+    		String department, int salary, double commission, int year) {
+		employee = new EmployeeType();
+		employee.employeeName = name;
+		employee.employeeId = employeeId;
+		employee.salary = salary;
+		employee.department = department;
+		employee.commission = commission;
+		employee.year = year;
 	}
 	
 	/*
@@ -44,6 +77,9 @@ public class EmployeeInfo {
 	 */
 	public static int calculateEmployeBonus(){
 		int total=0;
+		for (EmployeeType emp : employees ) {
+			total += emp.salary * emp.commission;
+		}
 		return total;
 	}
 	
@@ -56,16 +92,59 @@ public class EmployeeInfo {
 	 */
 	public static int calculateEmployePension(){
 		int total=0;
+		for (EmployeeType emp : employees ) {
+			total += emp.salary * emp.year * 0.05;
+		}
 		return total;
 	}
+
+	// return number of employees
+	public int getNumberOfEmployees() {
+		return employees.size();
+	}
 	
-	/*
-	 * you must declare some Inner classes here to demonstrate nested class structure.
-	 */
+	public void setCommissionPersentage(int empId, double commission) {
+		for (EmployeeType emp : employees ) {
+			if ( emp.employeeId == empId ) {
+				emp.commission = commission;
+				break;
+			}
+		}
+	}
 	
+	public void setEmployeeYear(int empId, int year) {
+		for (EmployeeType emp : employees ) {
+			if ( emp.employeeId == empId ) {
+				emp.year = year;
+				break;
+			}
+		}
+	}
+
+	public int getEmployeeYear(int empId) {
+		int year = 0;
+		for (EmployeeType emp : employees ) {
+			if ( emp.employeeId == empId ) {
+				year = emp.year;
+				break;
+			}
+		}
+		return year;
+	}
 	
-	
-	
-	
-	
+	@Override
+	public void benefitLayout() {
+		System.out.println("Benifit layout is not available yet...");
+	}
+
+	public double getCommissionPersentage(int empId) {
+		double cms = 0.0;
+		for (EmployeeType emp : employees ) {
+			if ( emp.employeeId == empId ) {
+				cms = emp.commission;
+				break;
+			}
+		}
+		return cms;
+	}
 }

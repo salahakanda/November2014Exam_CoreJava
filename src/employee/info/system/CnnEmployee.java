@@ -1,5 +1,11 @@
 package employee.info.system;
 
+/**
+ * CnnEmployee: practice of Core Java
+ * @author Zaidong Yidayeti
+ * @since December 6, 2014
+ */
+
 public class CnnEmployee {
 
 	/**
@@ -12,14 +18,114 @@ public class CnnEmployee {
 	 * 
 	 **/
 	public static void main(String[] args) {
-		
-		
-		
-		
-		
-		
-		
 
+		EmployeeInfo empInfo = new EmployeeInfo();
+		empInfo.employee.employeeId = 1;
+		empInfo.employee.employeeName = "Employee One";
+		empInfo.employee.department = "Development";
+		empInfo.employee.salary = 4000;
+		empInfo.employee.commission = 0.06;
+		empInfo.employee.year = 1;
+		ManageEmployees.employees.add(empInfo.employee);
+		
+		empInfo = new EmployeeInfo(2);
+		empInfo.employee.employeeName = "Employee Two";
+		empInfo.employee.department = "Development";
+		empInfo.employee.salary = 4500;
+		empInfo.employee.commission = 0.08;
+		empInfo.employee.year = 2;
+		ManageEmployees.employees.add(empInfo.employee);
+
+		empInfo = new EmployeeInfo(3, "Employee Three");
+		empInfo.employee.department = "Development";
+		empInfo.employee.salary = 4500;
+		empInfo.employee.commission = 0.08;
+		empInfo.employee.year = 2;
+		ManageEmployees.employees.add(empInfo.employee);
+		
+		empInfo = new EmployeeInfo(4, "Employee Four", "QA");
+		empInfo.employee.salary = 5500;
+		empInfo.employee.commission = 0.05;
+		empInfo.employee.year = 2;
+		ManageEmployees.employees.add(empInfo.employee);
+		
+		empInfo = new EmployeeInfo(5, "Employee Five", "Financial", 5000);
+		empInfo.employee.commission = 0.1;
+		empInfo.employee.year = 5;
+		ManageEmployees.employees.add(empInfo.employee);
+		
+		empInfo = new EmployeeInfo(6, "Employee Six", "HR", 7000);
+		empInfo.employee.commission = 0.08;
+		empInfo.employee.year = 3;
+		ManageEmployees.employees.add(empInfo.employee);
+
+		System.out.println("Company name is: " + EmployeeInfo.companyName);
+		
+		System.out.println("Total number of employees is: " + empInfo.getNumberOfEmployees());
+		
+		System.out.println();
+		System.out.println("Before change:");
+		System.out.println("Total salary: " + empInfo.calculateSalary());
+		System.out.println("Total bonus: " + EmployeeInfo.calculateEmployeBonus());
+		System.out.println("Total pension: " + EmployeeInfo.calculateEmployePension());
+		
+		System.out.println();
+		
+		// override
+		empInfo.benefitLayout();
+		
+		System.out.println();
+		String name = "Employee Five";
+		System.out.println("Employee ID of employee <" + name + "> is: " + empInfo.employeeId(name));
+		
+		int id = 3;
+		System.out.println("Employee name of employees[" + id + "] is: " + empInfo.employeeName(id));
+		System.out.println("Employees[" + id + "] is belongs to: " + empInfo.identifyDepartment(id) + " department.");
+		empInfo.assignDepartment(id, "QA");
+		System.out.println("Employees[" + id + "] is assigned to: " + empInfo.identifyDepartment(id) + " department.");
+		
+		System.out.println("Employees[" + id + "] has worked for: " + empInfo.getEmployeeYear(id) + " year(s).");
+		empInfo.setEmployeeYear(id, 5);
+		System.out.println("Employees[" + id + "]'s work history changed to: " + empInfo.getEmployeeYear(id) + " year(s).");
+		
+		id = 5;
+		System.out.println("Employees[" + id + "] has a performance index: " + empInfo.getCommissionPersentage(id));
+		empInfo.setCommissionPersentage(id, 0.04);
+		System.out.println("Employees[" + id + "]'s performance index changed to: " + empInfo.getCommissionPersentage(id));
+		
+		System.out.println();
+		System.out.println("After change: ");
+		System.out.println("Total salary: " + empInfo.calculateSalary());
+		System.out.println("Total bonus: " + EmployeeInfo.calculateEmployeBonus());
+		System.out.println("Total pension: " + EmployeeInfo.calculateEmployePension());
 	}
-
 }
+
+/**
+ * Result:
+
+Company name is: MyCompany, Inc.
+Total number of employees is: 6
+
+Before change:
+Total salary: 30500
+Total bonus: 2295
+Total pension: 3950
+
+Benifit layout is not available yet...
+
+Employee ID of employee <Employee Five> is: 5
+Employee name of employees[3] is: Employee Three
+Employees[3] is belongs to: Development department.
+Employees[3] is assigned to: QA department.
+Employees[3] has worked for: 2 year(s).
+Employees[3]'s work history changed to: 5 year(s).
+Employees[5] has a performance index: 0.1
+Employees[5]'s performance index changed to: 0.04
+
+After change: 
+Total salary: 30500
+Total bonus: 1995
+Total pension: 4625
+
+ */
