@@ -1,0 +1,108 @@
+Core Java Definition:
+
+What is jdk ?
+Answer: Java Development Kit
+
+What JDK contains or composed of or components comes with and define each components?
+Answer: JRE and tools like Compiler, Debugger, AppletViewer, etc.
+  JRE: Java Runtime Environment.
+  Compiler: java.exe, conver source code to Java bytecode
+
+What is IDE?
+Answer: Integrated Development Environment
+
+What are the IDEs available in the market to support java?
+Answer: Eclipse, Intellij IDEA
+
+Explain the entire java life cycle.
+Answer: 
+1) Write source code using editor or IDE such as Eclipse.
+2) Compile source code to bytecode using Java Compiler (javac.exe), and get Classname.class file.
+3) JVM load (by java.exe) and verify this bytecode (class) file.
+4) The Execution Engine in JVM presents the result on the operating system.
+
+what is class?
+Answer: Class is a code template that creates for objects.
+Exactly, a class is an extensible program-code-template for creating objects, providing initial values for state or member variables, and implementations of member functions/methods.
+
+What is object?
+Answer: Object is an instance of a Java class.
+
+What is the entry point of an application?
+Answer: The main() method is the entry point of a Java application.
+
+Why main is static?
+Answer: In the purpose of call by JVM without creating an instance of the class.
+
+What is the difference between an Interface and Abstract class?
+Answer:
+Interface: only can declare method.
+Abstract Class: can declare method, can implement method.
+
+Can you make an Object from an Interface and Abstract class ? if not how do you use it ?
+Answer: We can't create object out of an interface or Abstract class because main intention of creating an object is to utilize the wrapped methods and data. As interface don't have any concrete implementation hence we cannot.
+
+what is Access Specifier?
+Answer: public, private, protected
+
+What is OOP ? Define each feature of java OOP.
+Answer: Object Oriented Programming.
+
+What is API?
+Answer: Application Programming Interface
+
+Does java support multiple inheritance?
+Answer: Yes, it supports multiple inheritance of type, which is the ability of a class to implement more than one interface. 
+
+What is method overloading and when it happens?
+Answer: It means implement the same method with different parameters. It happens when compile.
+
+What is method overriding and when it happens?
+Answer: It means a method in extended class using the same method name and the same parameters with its super class. It happens when runtime.
+
+Explain exceptions in java and how to handle it.
+Answer: An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.
+  We can use the three exception handler components - the try, catch, and finally blocks - to write an exception handler.
+
+What is static keyword in java? How it has been used in variables and methods?
+Answer: The static keyword in Java means that the variable or function is shared between all instances of that class as it belongs to the type, not the actual objects themselves.
+  Static variable belongs to class, not belong to object.
+  Static method use no instance variables of any object of the class they are defined in.
+
+What is final and how it has been used variables and methods?
+Answer: The final keyword is used in several different contexts to define an entity which cannot later be changed.
+  For variables, it means cannot change its value.
+  For methods, it means cannot modify its logic, or cannot override it.
+
+What is final, finally and finalize?
+Answer: 
+  final: cannot change that variableÅfs value.
+  finally: use in try-catch exception. runs at last even has exception.
+  finalize: an operation of the method that performing before garbage collection.
+
+What is a constructor?
+Answer: A constructor is a bit of code that allows you to create objects from a class.
+  The purpose of constructor is to initialize the object.
+
+What is "this" keyword in java?
+Answer: The "this" is a reference to the current object.
+
+What is JVM stand for?
+Answer: Java Virtual Machine
+
+What version of java are you using?
+Answer: 1.8 (jdk1.8.0_25)
+
+What is JAR stand for ?
+Answer: Java Archive
+
+What is compile time and run time?
+Answer:
+Compile time: refers to either the operations performed by a compiler, programming language requirements that must be met by source code for it to be successfully compiled, or properties of the program that can be reasoned about during compilation.
+
+What is heap?
+Answer: A heap is an area of pre-reserved computer main storage ( memory ) that a program process can use to store data in some variable amount that won't be known until the program is running.
+
+How java manage it's memory?
+Answer: JVM runs a Garbage Collector to release the memory once used by an object and no longer referenced right now.
+
